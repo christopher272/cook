@@ -7,7 +7,6 @@ const { expressjwt } = require('express-jwt');
 require('dotenv').config();
 const path = require('path');
 
-const __dirname = path.resolve();
 
 app.use(express.json());
 app.use(morgan('dev'));
