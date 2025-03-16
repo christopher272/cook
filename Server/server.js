@@ -6,11 +6,15 @@ const cors = require('cors');
 const { expressjwt } = require('express-jwt');
 require('dotenv').config();
 const path = require('path');
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
-app.use(express.static(path.join(__dirname, 'client', `dist`)));
+app.use(express.static(path.join(__dirname, "../CooksPantry/dist")));
 
 async function connectToDb() {
     try {
@@ -33,8 +37,8 @@ app.use((err, req, res, next) => {
     return res.send({ errMsg: err.message });
 });
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../CooksPantry/dist", "index.html"));
 });
 
 app.listen(9000, () => {
