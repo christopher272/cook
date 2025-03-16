@@ -11,7 +11,7 @@ import InventoryForm from './components/InventoryForm';
 import AuthForm from './components/userLogicForm';
 import { KitchenInventoryContext } from './components/KitchenInventoryContext';
 import KitchenInventory from './components/KitchenInventory';
-import "./app.css";
+import "./App.css";
 
 
 export default function App() {
