@@ -1,0 +1,46 @@
+/* buttons.css */
+button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+
+.primary-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: #0056b3;
+}
+
+.secondary-btn {
+    background-color: #6c757d;
+    color: white;
+}
+
+.secondary-btn:hover {
+    background-color: #5a6268;
+}
+
+.danger-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.danger-btn:hover {
+    background-color: #a71d2a;
+}
+
+.edit-btn {
+    background-color: #ffc107;
+    color: black;
+}
+
+.edit-btn:hover {
+    background-color: #e0a800;
+}

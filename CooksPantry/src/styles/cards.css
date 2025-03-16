@@ -1,0 +1,73 @@
+/* cards.css */
+.inventory-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    width: 300px;
+    text-align: center;
+}
+
+.inventory-title {
+    margin: 10px 0;
+    color: #007bff;
+}
+
+.inventory-info {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.inventory-notes {
+    font-style: italic;
+    color: #777;
+}
+
+.inventory-input,
+.inventory-textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+}
+
+.inventory-textarea {
+    height: 60px;
+}
+
+.inventory-expiration {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.warning-expiration {
+    color: #0067ff;
+    background-color: #ff9800;
+}
+
+.danger-expiration {
+    color: #23caba;
+    background-color: #dc3545;
+    text-decoration: underline;
+}
+
+.expired-expiration {
+    color: #fff;
+    background-color: #555;
+    text-decoration: line-through;
+}
+
+.edit-btn {
+    background-color: #ffc107;
+    color: black;
+}
+
+.danger-btn {
+    background-color: #dc3545;
+    color: white;
+}

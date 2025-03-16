@@ -1,0 +1,106 @@
+/* Centering the entire login page */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  /* Full height of the viewport */
+    background-color: #f4f4f4;  /* Light gray background */
+}
+
+/* Login form container */
+.auth-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Title (Login / Signup) */
+.auth-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Form layout */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form fields */
+.form-group {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Labels */
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Input fields */
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    justify-content: center;
+    align-content: center;
+}
+
+.form-input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Login button */
+.primary-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.primary-btn:hover {
+    background-color: #0056b3;
+}
+
+/* "Don't have an account?" text */
+.auth-text {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+}
+
+/* Fixing "Sign Up" button alignment */
+.auth-text button {
+    background: none;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: #007bff;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.auth-text button:hover {
+    background-color: rgba(0, 123, 255, 0.2);
+}

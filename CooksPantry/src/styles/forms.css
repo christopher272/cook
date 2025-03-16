@@ -1,0 +1,97 @@
+/* Centering all forms properly */
+.auth-page, .form-page { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #f4f4f4; /* Light background for contrast */
+}
+
+/* General form container (used on login, inventory, etc.) */
+.auth-container, .form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* Prevents forms from being too wide */
+    text-align: center;
+}
+
+/* Form structure */
+.auth-form, .inventory-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Form input groups */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Labels */
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Input fields */
+.form-input, .form-select, .form-textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Focus effect */
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Checkbox alignment */
+.form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Submit button */
+.primary-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.primary-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Error messages */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .auth-container, .form-container {
+        padding: 20px;
+    }
+    .primary-btn {
+        font-size: 14px;
+    }
+}
