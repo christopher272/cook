@@ -4,7 +4,7 @@ import { KitchenInventoryContext } from '../components/KitchenInventoryContext';
 import InventoryCard from '../components/InventoryCard';
 
 function TotalInventory() {
-    const { ingredients, dishes, loading, error, updateItem, deleteItem } = useContext(KitchenInventoryContext);
+    const { ingredients, leftovers, loading, error, updateItem, deleteItem } = useContext(KitchenInventoryContext);
 
     if (loading) {
         return <div>Loading...</div>;
@@ -14,17 +14,17 @@ function TotalInventory() {
         return <div>Error: {error}</div>;
     }
 
-    // Combine ingredients and dishes into one array
-    const allItems = [...ingredients, ...dishes];
+    // Combine ingredients and leftovers into one array
+    const allItems = [...ingredients, ...leftovers];
 
     const handleUpdate = (id, updatedItem) => {
-        const isDish = updatedItem.hasOwnProperty('servings');
-        updateItem(id, updatedItem, isDish ? 'dishes' : 'ingredients');
+        const isLeftovers = updatedItem.hasOwnProperty('servings');
+        updateItem(id, updatedItem, isLeftovers ? 'leftovers' : 'ingredients');
     };
 
     const handleDelete = (id, item) => {
-        const isDish = item.hasOwnProperty('servings');
-        deleteItem(id, isDish ? 'dishes' : 'ingredients');
+        const isLeftovers = item.hasOwnProperty('servings');
+        deleteItem(id, isLeftovers ? 'leftovers' : 'ingredients');
     };
 
     return (

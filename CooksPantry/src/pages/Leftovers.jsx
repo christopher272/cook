@@ -3,8 +3,8 @@ import React, { useContext } from 'react';
 import { KitchenInventoryContext } from '../components/KitchenInventoryContext';
 import InventoryCard from '../components/InventoryCard';
 
-function Dishes() {
-    const { dishes, loading, error, updateItem, deleteItem } = useContext(KitchenInventoryContext);
+function Leftovers() {
+    const { leftovers, loading, error, updateItem, deleteItem } = useContext(KitchenInventoryContext);
 
     if (loading) {
         return <div>Loading...</div>;
@@ -15,18 +15,18 @@ function Dishes() {
     }
 
     const handleUpdate = (id, updatedItem) => {
-        updateItem(id, updatedItem, 'dishes');
+        updateItem(id, updatedItem, 'leftovers');
     };
 
     const handleDelete = (id) => {
-        deleteItem(id, 'dishes');
+        deleteItem(id, 'leftovers');
     };
 
     return (
         <div>
-            <h2>Dishes</h2>
-            {dishes.length > 0 ? (
-                dishes.map(item => (
+            <h2>Leftovers</h2>
+            {leftovers.length > 0 ? (
+                leftovers.map(item => (
                     <InventoryCard
                         key={item._id}
                         item={item}
@@ -35,10 +35,10 @@ function Dishes() {
                     />
                 ))
             ) : (
-                <p>No dishes available</p>
+                <p>No leftovers available</p>
             )}
         </div>
     );
 }
 
-export default Dishes;
+export default Leftovers;

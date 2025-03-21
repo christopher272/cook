@@ -25,7 +25,7 @@ connectToDb();
 
 app.use('/api/auth', require('./routes/authRouter'));
 app.use('/api/main', expressjwt({ secret: process.env.SECRET, algorithms: ['HS256'] }));
-app.use('/api/main/dishes', require('./routes/dishRouter'));
+app.use('/api/main/leftovers', require('./routes/leftoverRouter'));
 app.use('/api/main/ingredients', require('./routes/ingredientRouter'));
 
 app.use((err, req, res, next) => {

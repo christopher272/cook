@@ -1,40 +1,50 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { KitchenInventoryContext } from "./KitchenInventoryContext";
+import { KitchenInventoryContext } from "../components/KitchenInventoryContext";
 import { useContext } from "react";
-import '../styles/navbar.css'
+import "../styles/navbar.css"; // Make sure this file is correctly imported
 
 function Navbar() {
     const { logout } = useContext(KitchenInventoryContext);
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
 
     return (
         <nav className="navbar">
-            <ul className="nav-list">
-                <li className="nav-item">
-                    <Link to="/"><button className="nav-button">Home</button></Link>
+            <button className="menu-toggle" onClick={toggleMenu}>
+                ☰
+            </button>
+            <ul className={menuOpen ? "nav-links open" : "nav-links"}>
+                <li>
+                    <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
                 </li>
-                <li className="nav-item">
-                    <Link to="/fridge"><button className="nav-button">Fridge</button></Link>
+                <li>
+                    <Link to="/fridge" onClick={() => setMenuOpen(false)}>Fridge</Link>
                 </li>
-                <li className="nav-item">
-                    <Link to="/freezer"><button className="nav-button">Freezer</button></Link>
+                <li>
+                    <Link to="/freezer" onClick={() => setMenuOpen(false)}>Freezer</Link>
                 </li>
-                <li className="nav-item">
-                    <Link to="/pantry"><button className="nav-button">Pantry</button></Link>
+                <li>
+                    <Link to="/pantry" onClick={() => setMenuOpen(false)}>Pantry</Link>
                 </li>
-                <li className="nav-item">
-                    <Link to="/cupboard"><button className="nav-button">Cupboard</button></Link>
+                <li>
+                    <Link to="/cupboard" onClick={() => setMenuOpen(false)}>Cupboard</Link>
                 </li>
-                <li className="nav-item">
-                    <Link to="/total"><button className="nav-button">Total Inventory</button></Link>
+                <li>
+                    <Link to="/total" onClick={() => setMenuOpen(false)}>Total Inventory</Link>
                 </li>
-                <li className="nav-item">
-                    <Link to="/dish"><button className="nav-button">Dishes</button></Link>
+                <li>
+                    <Link to="/leftovers" onClick={() => setMenuOpen(false)}>Leftovers</Link>
                 </li>
-                <li className="nav-item">
-                    <Link to="/"><button className="nav-button logout-button" onClick={logout}>Logout</button></Link>
+                <li>
+                    <Link to="/" onClick={logout}>Logout</Link>
                 </li>
             </ul>
         </nav>
     );
 }
+
 export default Navbar;

@@ -6,7 +6,7 @@ import Freezer from './pages/Freezer';
 import Pantry from './pages/Pantry';
 import Cupboard from './pages/Cupboard';
 import TotalInventory from './pages/TotalInventory';
-import Dishes from './pages/Dish';
+import Leftovers from './pages/Leftovers';
 import InventoryForm from './components/InventoryForm';
 import AuthForm from './components/userLogicForm';
 import { KitchenInventoryContext } from './components/KitchenInventoryContext';
@@ -30,7 +30,7 @@ export default function App() {
                     <Route path="/pantry" element={token ? <Pantry /> : <Navigate to="/" />} />
                     <Route path="/cupboard" element={token ? <Cupboard /> : <Navigate to="/" />} />
                     <Route path="/total" element={token ? <TotalInventory /> : <Navigate to="/" />} />
-                    <Route path="/dish" element={token ? <Dishes /> : <Navigate to="/" />} />
+                    <Route path="/leftovers" element={token ? <Leftovers /> : <Navigate to="/" />} />
                 </Routes>
             </KitchenInventory>
         </>

@@ -17,9 +17,9 @@ userAxios.interceptors.request.use(config => {
 
 // KitchenInventoryProvider component
 export default function KitchenInventoryProvider(props) {
-    // State for managing ingredients, dishes, and user authentication
+    // State for managing ingredients, leftovers, and user authentication
     const [ingredients, setIngredients] = useState([]);
-    const [dishes, setDishes] = useState([]);
+    const [leftovers, setLeftovers] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -27,7 +27,7 @@ export default function KitchenInventoryProvider(props) {
     const initState = {
         user: JSON.parse(localStorage.getItem("user")) || {},
         token: localStorage.getItem("token") || "",
-        dishes: [],
+        leftovers: [],
         ingredients: [],
         errMsg: ""
     };
@@ -102,18 +102,18 @@ export default function KitchenInventoryProvider(props) {
         }));
     }
 
-    // Fetch ingredients and dishes (only if token is present)
+    // Fetch ingredients and leftovers (only if token is present)
     async function fetchData() {
         try {
             const ingredientsResponse = await userAxios.get('/api/main/ingredients');
-            const dishesResponse = await userAxios.get('/api/main/dishes');
+            const leftoversResponse = await userAxios.get('/api/main/leftovers');
             setIngredients(ingredientsResponse.data);
-            setDishes(dishesResponse.data);
+            setLeftovers(leftoversResponse.data);
         } catch (err) {
             console.error('Error fetching data:', err);
         }
     }
-    // Update an item (either ingredient or dish)
+    // Update an item (either ingredient or leftover)
     const updateItem = async (id, updatedItem, category) => {
         try {
             const response = await userAxios.put(`/api/main/${category}/${id}`, updatedItem);
@@ -123,9 +123,9 @@ export default function KitchenInventoryProvider(props) {
                 setIngredients(prevIngredients =>
                     prevIngredients.map(item => (item._id === id ? updatedData : item))
                 );
-            } else if (category === 'dishes') {
-                setDishes(prevDishes =>
-                    prevDishes.map(item => (item._id === id ? updatedData : item))
+            } else if (category === 'leftovers') {
+                setLeftovers(prevLeftovers =>
+                    prevLeftovers.map(item => (item._id === id ? updatedData : item))
                 );
             }
         } catch (err) {
@@ -134,14 +134,14 @@ export default function KitchenInventoryProvider(props) {
         }
     };
 
-    // Delete an item (either ingredient or dish)
+    // Delete an item (either ingredient or leftover)
     const deleteItem = async (id, category) => {
         try {
             await userAxios.delete(`/api/main/${category}/${id}`);
             if (category === 'ingredients') {
                 setIngredients(prevIngredients => prevIngredients.filter(item => item._id !== id));
-            } else if (category === 'dishes') {
-                setDishes(prevDishes => prevDishes.filter(item => item._id !== id));
+            } else if (category === 'leftovers') {
+                setLeftovers(prevLeftovers => prevLeftovers.filter(item => item._id !== id));
             }
         } catch (err) {
             setError('Failed to delete item. Please try again later.');
@@ -157,7 +157,7 @@ export default function KitchenInventoryProvider(props) {
             errMsg: userState.errMsg,
             token: userState.token,
             ingredients,
-            dishes,
+            leftovers,
             loading,
             error,
             fetchData,

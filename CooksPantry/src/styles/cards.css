@@ -71,3 +71,20 @@
     background-color: #dc3545;
     color: white;
 }
+
+.inventory-card {
+    width: 100%;
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Tables adjust to smaller screens */
+@media (max-width: 768px) {
+    .inventory-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}

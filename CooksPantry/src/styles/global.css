@@ -52,3 +52,30 @@ a:hover {
     font-size: 14px;
     color: #666;
 }
+
+/* Make text and layout responsive */
+body {
+    font-size: 16px;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Ensure content adapts to smaller screens */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Grid & Flexbox adjustments */
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Make images and cards responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}

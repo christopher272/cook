@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const dishSchema = new Schema({
+const leftoverSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -28,4 +28,4 @@ const dishSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('Dish', dishSchema);
+module.exports = mongoose.model('Leftover', leftoverSchema);

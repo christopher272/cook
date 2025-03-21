@@ -44,7 +44,7 @@ function InventoryForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const endpoint = formType === 'ingredient' ? 'ingredients' : 'dishes';
+        const endpoint = formType === 'ingredient' ? 'ingredients' : 'leftovers';
 
         const filteredData = formType === 'ingredient'
             ? {
@@ -70,7 +70,7 @@ function InventoryForm() {
 
         try {
             await userAxios.post(`/api/main/${endpoint}`, filteredData);
-            alert(`${formType === 'ingredient' ? 'Ingredient' : 'Dish'} added successfully!`);
+            alert(`${formType === 'ingredient' ? 'Ingredient' : 'Leftover'} added successfully!`);
             setFormData({
                 name: '',
                 amount: '',
@@ -106,11 +106,11 @@ function InventoryForm() {
                 <label>
                     <input
                         type="radio"
-                        value="dish"
-                        checked={formType === 'dish'}
+                        value="leftover"
+                        checked={formType === 'leftover'}
                         onChange={handleFormTypeChange}
                     />
-                    Add Dish
+                    Add Leftover
                 </label>
             </div>
             <form className="inventory-form" onSubmit={handleSubmit}>
@@ -135,6 +135,8 @@ function InventoryForm() {
                                 <option value="oz">Oz</option>
                                 <option value="floz">Fluid Oz</option>
                                 <option value="jar">Jar</option>
+                                <option value="dozen">Dozen</option>
+                                <option value="each">Each</option>
                                 {/* Add more options as needed */}
                             </select>
                         </div>
@@ -146,6 +148,9 @@ function InventoryForm() {
                                 <option value="dairy">Dairy</option>
                                 <option value="veggies">Veggies</option>
                                 <option value="fruits">Fruits</option>
+                                <option value="protein">Protein</option>
+                                <option value="condiments">Condiments</option>
+                                <option value="other">Other</option>
                                 {/* Add more options as needed */}
                             </select>
                         </div>
@@ -172,14 +177,14 @@ function InventoryForm() {
                     </div>
                 )}
 
-                {(formData.expiration || formType === 'dish') && (
+                {(formData.expiration || formType === 'leftover') && (
                     <div className="form-group">
                         <label>Expiration Date: </label>
                         <input className="form-input" type="date" name="expirationDate" value={formData.expirationDate} onChange={handleChange} required />
                     </div>
                 )}
 
-                {formType === 'dish' && (
+                {formType === 'leftover' && (
                     <>
                         <div className="form-group">
                             <label>Servings: </label>
@@ -202,7 +207,7 @@ function InventoryForm() {
                     <textarea className='form-textarea' name="notes" value={formData.notes} onChange={handleChange}></textarea>
                 </div>
 
-                <button className="primary-btn" type="submit">Add {formType === 'ingredient' ? 'Ingredient' : 'Dish'}</button>
+                <button className="primary-btn" type="submit">Add {formType === 'ingredient' ? 'Ingredient' : 'leftover'}</button>
             </form>
         </div>
     );

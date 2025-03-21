@@ -4,7 +4,7 @@ import { KitchenInventoryContext } from '../components/KitchenInventoryContext';
 import InventoryCard from '../components/InventoryCard';
 
 function Fridge() {
-    const { ingredients, dishes, loading, error, updateItem, deleteItem } = useContext(KitchenInventoryContext);
+    const { ingredients, leftovers, loading, error, updateItem, deleteItem } = useContext(KitchenInventoryContext);
 
     if (loading) {
         return <div>Loading...</div>;
@@ -14,20 +14,20 @@ function Fridge() {
         return <div>Error: {error}</div>;
     }
 
-    // Combine ingredients and dishes, and filter for items located in the refrigerator
+    // Combine ingredients and leftovers, and filter for items located in the refrigerator
     const fridgeItems = [
         ...ingredients.filter(item => item.location === 'refrigerator'),
-        ...dishes.filter(item => item.location === 'refrigerator')
+        ...leftovers.filter(item => item.location === 'refrigerator')
     ];
 
     const handleUpdate = (id, updatedItem) => {
-        const isDish = updatedItem.hasOwnProperty('servings');
-        updateItem(id, updatedItem, isDish ? 'dishes' : 'ingredients');  // Use correct category
+        const isLeftovers = updatedItem.hasOwnProperty('servings');
+        updateItem(id, updatedItem, isLeftovers ? 'leftovers' : 'ingredients');  // Use correct category
     };
 
     const handleDelete = (id, item) => {
-        const isDish = item.hasOwnProperty('servings');
-        deleteItem(id, isDish ? 'dishes' : 'ingredients');  // Use correct category
+        const isLeftovers = item.hasOwnProperty('servings');
+        deleteItem(id, isLeftovers ? 'leftovers' : 'ingredients');  // Use correct category
     };
 
     return (
